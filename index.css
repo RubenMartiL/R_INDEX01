@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+    color: rgb(61, 61, 61);
+}
+
+/* CONFIG */
+:root {
+    --wallpaper: url("https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    --wallpaperSize: cover;
+    --mainBoxWidth: 40vw;
+    --mainBoxHeight: 50vh;
+    --wallpaperBoxMargin: 15px;
+    --mainBoxRadius: 20px;
+    --interiorBoxRadius: 15px;
+}
+
+body {
+    background: var(--wallpaper);
+    background-size: var(--wallpaperSize);
+}
+
+/* LOGIN BOXES */
+main {
+    width: var(--mainBoxWidth);
+    height: var(--mainBoxHeight);
+    background-color: white;
+    border-radius: var(--mainBoxRadius);
+    margin: calc((100vh - var(--mainBoxHeight)) / 2) calc((100vw - var(--mainBoxWidth)) / 2);
+    display: flex;
+}
+
+aside {
+    width: 50%;
+    height: calc(100% - (var(--wallpaperBoxMargin)*2));
+    background-color: transparent;
+    border-radius: var(--interiorBoxRadius);
+    margin: var(--wallpaperBoxMargin);
+    overflow: hidden;
+    position: relative;
+}
+
+aside > .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container > img {
+    width: 15%;
+}
+
+aside > div {
+    width: 100vw;
+    height: 100vh;
+    margin-top: calc(((100vh - var(--mainBoxHeight)) / 2)* -1 - var(--wallpaperBoxMargin));
+    margin-left: calc(((100vw - var(--mainBoxWidth)) / 2)* -1 - var(--wallpaperBoxMargin));
+    background: var(--wallpaper);
+    background-size: var(--wallpaperSize);
+    z-index: 0;
+}
+
+article {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* LOGIN FORM */
+h2 {
+    position: absolute;
+    top: var(--wallpaperBoxMargin);
+    left: 0;
+}
+
+label {
+    display: block;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px var(--secondary);
+}
+
+button {
+    width: fit-content;
+    background: #f8de93;
+    font-weight: bold;
+    padding: 0.75rem 3rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-end;
+}
+
+button:hover {
+    background: #f9d056;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding-right: calc( 2 * var(--wallpaperBoxMargin));
+    padding-left: var(--wallpaperBoxMargin);
+}
+
+.loginExtraInfo {
+    position: absolute;
+    bottom: var(--wallpaperBoxMargin);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.loginExtraInfo > p {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.loginExtraInfo  a {
+    font-weight: bold;
+    color: #f9d056;
+    text-decoration: none;
+}
